@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="430.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="safetytruck.FXMLDocumentController">
+    <children>
+        <Button fx:id="button" layoutX="193.0" layoutY="346.0" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="115.0" text="Start!">
+         <font>
+            <Font size="17.0" />
+         </font></Button>
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <Label layoutX="208.0" layoutY="21.0" prefHeight="36.0" prefWidth="84.0" text="Status:" wrapText="true">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="206.0" layoutY="57.0" text="Default Value">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ChoiceBox layoutX="336.0" layoutY="389.0" prefWidth="150.0" />
+      <TextField layoutX="28.0" layoutY="389.0" />
+      <Button layoutX="193.0" layoutY="384.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="115.0" text="Calibrate" />
+      <Label layoutX="28.0" layoutY="365.0" text="Calibration number" />
+      <Label layoutX="336.0" layoutY="365.0" text="Controller selection" />
+      <ChoiceBox layoutX="175.0" layoutY="108.0" prefWidth="150.0" />
+      <ChoiceBox layoutX="175.0" layoutY="158.0" prefWidth="150.0" />
+      <ChoiceBox layoutX="176.0" layoutY="209.0" prefWidth="150.0" />
+      <Label layoutX="175.0" layoutY="91.0" text="Steering axis" />
+      <Label layoutX="175.0" layoutY="141.0" text="Accelerator axis" />
+      <Label layoutX="175.0" layoutY="192.0" text="Calibration button" />
+    </children>
+</AnchorPane>
