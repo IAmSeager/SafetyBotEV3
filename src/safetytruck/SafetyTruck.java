@@ -40,8 +40,6 @@ public class SafetyTruck extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        InputHandler ih = new InputHandler();
-        ih.start();
         launch(args);
     }
     
