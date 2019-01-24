@@ -25,7 +25,7 @@
          </font>
       </Label>
       <ChoiceBox fx:id="controllerList" layoutX="336.0" layoutY="389.0" prefWidth="150.0" />
-      <TextField layoutX="28.0" layoutY="389.0" />
+      <TextField fx:id="calibNum" layoutX="28.0" layoutY="389.0" />
       <Button layoutX="193.0" layoutY="384.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="115.0" text="Calibrate" />
       <Label layoutX="28.0" layoutY="365.0" text="Calibration number" />
       <Label layoutX="336.0" layoutY="365.0" text="Controller selection" />

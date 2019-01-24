@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import net.java.games.input.Component;
 import net.java.games.input.Controller;
 import net.java.games.input.ControllerEnvironment;
@@ -33,12 +34,14 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private ChoiceBox controllerList, steeringAxis, accelAxis, calibrationButtonList;
+    
+    @FXML
+    private TextField calibNum;
    
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
-        
     }
     
     

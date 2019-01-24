@@ -5,6 +5,9 @@
  */
 package safetytruck.threads;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javafx.collections.FXCollections;
@@ -39,7 +42,7 @@ public class InputHandler extends Thread {
             }
             
             
-       
+       try{
         while (true) {
             Event event = new Event();
 
@@ -50,10 +53,25 @@ public class InputHandler extends Thread {
                 EventQueue queue = controller.getEventQueue();
                 while (queue.getNextEvent(event)) {
                     Component comp = event.getComponent();
+                    if(comp.getName().equals(FXMLDocumentController.main.getSteeringAxis().getValue())){
+                        BufferedWriter SteeringWriter = new BufferedWriter(new FileWriter("XAxis.txt"));
+                        SteeringWriter.write(comp.getPollData() + "");
+                        SteeringWriter.close();
+                    }
+                    
+                    if(comp.getName().equals(FXMLDocumentController.main.getAccelAxis().getValue())){
+                        BufferedWriter SteeringWriter = new BufferedWriter(new FileWriter("YAxis.txt"));
+                        SteeringWriter.write(comp.getPollData() + "");
+                        SteeringWriter.close();
+                    }
                     
                 }
             }
         }
+       }
+       catch(IOException e){
+           e.printStackTrace();
+       }
     }
 
 }
