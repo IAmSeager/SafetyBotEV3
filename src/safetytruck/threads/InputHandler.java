@@ -9,7 +9,8 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import net.java.games.input.Component;
@@ -31,6 +32,16 @@ public class InputHandler extends Thread {
         super("InputThread");
     }
 
+    public void callibrate(float num) throws IOException, InterruptedException{
+        BufferedWriter callibrateWriter = new BufferedWriter(new FileWriter("Calibrate.txt"));
+        callibrateWriter.write(num + "");
+        callibrateWriter.close();
+        Thread.sleep(500);
+        callibrateWriter = new BufferedWriter(new FileWriter("Calibrate.txt"));
+        callibrateWriter.write("");
+        callibrateWriter.close();
+    }
+    
     @Override
     public void run() {
         
@@ -63,6 +74,13 @@ public class InputHandler extends Thread {
                         BufferedWriter SteeringWriter = new BufferedWriter(new FileWriter("YAxis.txt"));
                         SteeringWriter.write(comp.getPollData() + "");
                         SteeringWriter.close();
+                    }
+                    if(comp.getName().equals(FXMLDocumentController.main.getCallibButton().getValue())){
+                        try {
+                            callibrate(Float.parseFloat(FXMLDocumentController.main.getCallibNum().getText()));
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(InputHandler.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                     }
                     
                 }

@@ -5,14 +5,18 @@
  */
 package safetytruck;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -37,20 +41,17 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private TextField calibNum;
-   
     
     @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-    }
+    private Button startButton, calibButton;
     
-    
-    
+    InputHandler ih = new InputHandler();
+     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         main = this;
         controllerList.setOnAction(e -> onChanged());
-        InputHandler ih = new InputHandler();
+        calibButton.setOnAction(e -> onCallibRequest());
         ih.start();
         
         
@@ -64,6 +65,12 @@ public class FXMLDocumentController implements Initializable {
     }
       public ChoiceBox getAccelAxis(){
         return accelAxis;
+    }
+    public ChoiceBox getCallibButton(){
+        return calibrationButtonList;
+    }  
+    public TextField getCallibNum(){
+        return calibNum;
     }
 
     private void onChanged() {
@@ -89,6 +96,16 @@ public class FXMLDocumentController implements Initializable {
                 accelAxis.setItems(obsAxisList);
                 calibrationButtonList.setItems(obsButtonList);
             }
+        }
+    }
+    
+    private void onCallibRequest() {
+        try {
+            ih.callibrate(Float.parseFloat(calibNum.getText()));
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

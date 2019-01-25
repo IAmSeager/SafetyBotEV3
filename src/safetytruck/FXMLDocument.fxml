@@ -9,7 +9,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="430.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="safetytruck.FXMLDocumentController">
     <children>
-        <Button fx:id="button" layoutX="193.0" layoutY="336.0" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="115.0" text="Start!">
+        <Button fx:id="startButton" layoutX="193.0" layoutY="336.0" prefHeight="30.0" prefWidth="115.0" text="Start!">
          <font>
             <Font size="17.0" />
          </font></Button>
@@ -26,7 +26,7 @@
       </Label>
       <ChoiceBox fx:id="controllerList" layoutX="336.0" layoutY="389.0" prefWidth="150.0" />
       <TextField fx:id="calibNum" layoutX="28.0" layoutY="389.0" />
-      <Button layoutX="193.0" layoutY="384.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="115.0" text="Calibrate" />
+      <Button fx:id="calibButton" layoutX="193.0" layoutY="384.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="115.0" text="Calibrate" />
       <Label layoutX="28.0" layoutY="365.0" text="Calibration number" />
       <Label layoutX="336.0" layoutY="365.0" text="Controller selection" />
       <ChoiceBox fx:id="steeringAxis" layoutX="175.0" layoutY="108.0" prefWidth="150.0" />
